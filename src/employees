@@ -127,13 +127,9 @@ SELECT first_name,last_name , age from employees  where  age > 30 and age<50 ;
 SELECT email from employees where email not like ('%com');
 SELECT * from employees where first_name like '%e';
 SELECT count(distinct country) from employees ;
---15 мамалекеттердин аттарын жана ал мамлекеттен канча жумушчу бар экенин чыгаргыла
 SELECT country,count(*) from employees group by country order by count(*);
-SELECT count(distinct employees) from  employees ;
 SELECT max(age) from employees ;
---18. Бир мамлекетте иштегендердин саны 5 тен коп болсо мамлекеттердин
--- аттарын жана ишегендердин санын чыгаргыла
-SELECT country,count(*) from employees group by country having count(*)>5 order by count(*);
 SELECT avg(age) from employees;
+SELECT country,count(*) from employees group by country having count(*)>5 order by count(*);
 SELECT * from employees where age not in (50) ;
 SELECT last_name from employees where length(last_name)=6;
