@@ -1,0 +1,44 @@
+1. Таблицанын ичинен жумушчулардын атын жана страналарын чыгаргыла.
+2. Таблицада канча строка бар экенин чыгаргыла.
+3. Таблицадан мамлекети боюнча сорттоп чыгаргыла(Z -> A).
+4. Мамлекеттердин гана списогун уникальный кылып чыгаргыла.
+5. Кыздардын  списогун чыгаргыла
+6. Male жана Female  gender лерди чыгаргыла
+7. Кытайда жана Индонезияда торолгон эркектерди чыгаргыла
+8. 50 дон кийинки списоктогуларды чыгаргыла
+9. 20 дан 80 ге чейинки списоктогуларды чыгаргыла
+10. Россия, Индонезия жана Польшадан башка олкодон келгендерди чыгаргыла
+11. 30 жана 50 жаштын ортосундагы жумушчулардын атын, фамилиясын жана жашын чыгаргыла
+12. почтасы .com дон башкача буткондорду чыгаргыла
+13. Аты 'e' тамгасы  менен буткон жумушчуларды чыгаргыла
+14. Канча мамлекет бар экенин чыгаргыла
+15. мамалекеттердин аттарын жана ал мамлекеттен канча жумушчу бар экенин чыгаргыла
+16. Жумушчулардын арасынан жашы эн чону канчада экенин чыгаргыла
+17. Жумушчулардын орточо жашы канча
+18. Бир мамлекетте иштегендердин саны 5 тен коп болсо мамлекеттердин
+аттарын жана ишегендердин санын чыгаргыла
+19. 50 жаштан башка жумушчуларды чыгаргыла
+20. фамилиясы 6 тамгадан турган жумушчуларды чыгаргыла
+
+SELECT first_name, country  from employees;
+SELECT count(id) from employees;
+SELECT country from  employees ORDER BY country desc ;
+SELECT Distinct country from  employees ;
+SELECT first_name from employees where gender='Female';
+SELECT gender from  employees where gender ='Male'and 'Female';
+SELECT gender from  employees where gender = 'Male' or gender ='Female';
+SELECT first_name from  employees where gender = 'Male' and country = 'China' or  country = 'Indonesia';
+SELECT * from employees  offset 50;
+SELECT * from employees limit 81 offset 19;
+SELECT * from employees where country not in ('Russia','Indonesia','Poland');
+SELECT first_name,last_name , age from employees  where  age > 30 and age<50 ;
+SELECT email from employees where email not like ('%com');
+SELECT * from employees where first_name like '%e';
+SELECT count(distinct country) from employees ;
+SELECT country,count(*) from employees group by country order by count(*);
+SELECT  max(age) from employees ;
+SELECT avg(age) from employees;
+SELECT country,count(*) from employees group by
+                country having count(*)>5 order by count(*);
+SELECT * from employees where age not in (50) ;
+SELECT last_name from employees where length(last_name)= 6;
